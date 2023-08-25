@@ -4,6 +4,7 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 function ReportCard(student)
 {
+    console.log(student);
     var output = (
         <div className='container'>
             <div className='row'>
@@ -38,11 +39,15 @@ function ReportCard(student)
     )
     return output;
 }
-var student = {
+var students = {
     name: 'Alex',
     html:55,
     css:65,
     javascript:75,
     bootstrap:85
 };
-root.render(ReportCard(student));
+console.log(students);
+console.log(student);
+
+
+root.render(ReportCard(students));

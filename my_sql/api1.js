@@ -1,5 +1,5 @@
 var express = require('express');
-var connection = require('./api_connection.js');
+var connection = require('./api_connection');
 var app = express();
 app.get("/", function (request, response) {
      response.json({ 'message': 'This is home page' });

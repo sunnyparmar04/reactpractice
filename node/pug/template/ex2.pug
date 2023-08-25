@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title Cricketer Data
+    link(rel='stylesheet', href='/styles/style.css')
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  body.text-uppercase
+    .container
+      h1.text-center.fw-bold Cricketer Data
+      .row
+        each cricketer in data
+          .col-3.mb-3
+            .card.shadow.bg-dark.text-white
+              .card-header.mx-auto.text-uppercase.font-weight-bold= cricketer.name
+              .card-body.text-capitalize
+                p.card-text Runs: #{cricketer.runs}
+                  p.card-text Wickets: #{cricketer.wickets}

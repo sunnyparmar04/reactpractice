@@ -3,7 +3,7 @@ import React from 'react';
 class Team extends React.Component
 {
     constructor(props)
-    {
+        {
         super(props);
         // create state 
         this.state = {
@@ -25,7 +25,7 @@ class Team extends React.Component
         });
     }
     render()
-    {
+        {
        return (<tr>
         <td>{this.state.name}</td>
         <td>{this.state.match}</td>

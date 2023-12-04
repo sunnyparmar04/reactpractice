@@ -12,7 +12,8 @@ var server = http.createServer(function (request, response) {
         }
         var string_data = JSON.stringify(data);
         console.log(string_data)
+        response.write(string_data)
     }
 });
 server.listen(5000);
-console.log('server ready ....')
+console.log('server ready ....');

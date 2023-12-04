@@ -10,6 +10,7 @@ var server = http.createServer(function (request, response) {
         else {
             console.log('file opend ....');
             var noofcharater = buf.length;
+            console.log(noofcharater);
             fs.read(fd, buf, 0, noofcharater, 0, function (error, count) {
                 if (error) {
                     console.log(error);

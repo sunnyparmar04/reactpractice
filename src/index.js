@@ -2,61 +2,62 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 var root = ReactDOM.createRoot(document.getElementById('root'));
-
-class ListAndKeys extends React.Component {
-    constructor(props) {
+class InterestCalculator extends React.Component
+{
+    constructor(props)
+    {
         super(props);
-        this.state = {
-            heading: props.heading,
-            states: props.states,
-        }
+        this.state = {}; //empty state object
     }
-         DeleteState = (item) => {
-         console.log(item);
-         var temp = this.state.states.filter((state) => {
-            if (state !== item)
-                return state;
-        });
+    onInputChange = (event) => {
         this.setState({
-            states: temp
+            [event.target.name] : event.target.value
         });
     }
-    render() {
+
+    calculateResult = () => {
+        console.log(this.state);
+        this.setState({
+            result: (this.state.amount * this.state.rate * this.state.year) / 100
+        });
+        
+    }
+    render()
+    {
         return (<div className='container'>
             <div className='row'>
-                <div className='col-lg-4 '>
-                    <div className='card'>
+                <div className='col-6 offset-3'>
+                    <div className='card shadow'>
                         <div className='card-header text-bg-primary'>
-                            <h3>{this.state.heading}</h3>
+                            <h2>Interest Calculator</h2>
                         </div>
                         <div className='card-body'>
-                            <ul className='list-group'>
-                                {this.state.states.map((item) => {
-                                    return <li key={item} className='list-group-item'>{item}</li>
-                                })}
-                            </ul>
+                            <form>
+                                <div className='mb-3'>
+                                    <label  className='form-label' htmlFor='amount'>Amount</label>
+                                    <input id= 'amount' className='form-control' 
+                                    onChange={this.onInputChange}  name='amount'  required />
+                                </div> 
+                                <div className='mb-3'>
+                                    <label  className='form-label' htmlFor='rate'>Rate</label>
+                                    <input id= 'rate' className='form-control' name='rate'  onChange={this.onInputChange} required />
+                                </div>
+                                <div className='mb-3'>
+                                    <label  className='form-label' htmlFor='year'>Year</label>
+                                    <input id= 'year' className='form-control' name='year'  required onChange={this.onInputChange} />
+                                </div>
+                                <div>
+                                    <button type='button' className='btn btn-primary' onClick={this.calculateResult}>Calculate Interest</button>
+                                </div>
+                                <div>
+                                    {this.state.result}
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <div className='col-lg-8'>
-                    <div className='row'>
-                        {this.state.states.map((item) => {
-                            return <div key={item} className='col-6 mb-2'>
-                                <div className='card text-bg-warning p-3'>
-                                    <div className='card-body'>
-                                        <h1>{item}</h1>
-                                        <button type='button' onClick={() => this.DeleteState(item)} className='btn btn-danger'>Delete</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        })}
-                    </div>
-                </div>
-
             </div>
-        </div>);
+        </div>)
     }
 }
-var states = ['Gujarat', 'Tamil nadu', 'Karnatak', 'Andhra pradesh', 'Maharastra', 'punjab'];
-root.render(<ListAndKeys heading='Indian states' states={states} />);
+root.render(< InterestCalculator />);

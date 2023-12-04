@@ -9,7 +9,7 @@ var server = http.createServer(function(request,response){
      console.log(my_url);
      if(my_url.pathname == '/zodiac')
      {
-          let month = my_url.query['month'];
+          let month = my_url.query.month;
           let day = my_url.query['day'];
           console.log("month is ",month,"day is ",day);
 

@@ -4,8 +4,6 @@ var server = http.createServer(function (request, response) {
 
     fs.readFile('./pro91.html', function (error, FileContent) {
         console.log('file read successfully');
-
-
         fs.appendFile('./pro9.html', FileContent, function (error) {
             if (error)
                 console.log(error);

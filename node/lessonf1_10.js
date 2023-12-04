@@ -9,11 +9,10 @@ var server = http.createServer(function (request, response) {
         else {
             response.writeHead(200,{'content-type':'text/html'});
             response.write(fileContent);
-            response.end();
             console.log('data readed...');
+            response.end();
         }
     })
-
 });
 server.listen(5000);
 console.log('server ready ....')
